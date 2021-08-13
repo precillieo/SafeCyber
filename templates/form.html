@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Harassment Form | Team ZPR</title>
+
+</head>
+<style>
+    nav{
+      background-color: #008dca;
+    }
+    .fnt{
+        font-size: 1.5rem;
+        font-weight: 900;
+    }
+    .mdj{
+        margin-top: 4rem;
+    }
+    body{
+        font-family: 'Roboto', sans-serif;
+        background-color: #d3d3d3;
+        color: #000000;
+    }
+    .custom-file-input.selected:lang(en)::after {
+      content: "" !important;
+    }
+
+    .custom-file {
+      overflow: hidden;
+    }
+
+    .custom-file-input {
+      white-space: nowrap;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-light fixed-top">
+        <span class="navbar-brand mb-0 h1 fnt">TEAM ZPR</span>
+      </nav>
+        <div class="container mx-auto mdj">
+        <div class="">
+            <h1>We are here to help you! Kindly fill this form to report any form of online harassment.</h1>
+        </div>
+        <form class="mt-3" action="{{url_for('details')}}" method= "post">
+            <div class="form-group">
+                <label class="font-weight-bold" for="exampleInputName">Name</label>
+                <div class="row">
+                     <div class="col">
+                      <input type="text" name= "fn" class="form-control" placeholder="First name" required>
+                    </div>
+                    <div class="col">
+                      <input type="text" name= "ln" class="form-control" placeholder="Last name" required>
+                    </div>
+                  </div>
+            </div>
+            <div class="form-group">
+              <label  class="font-weight-bold" for="exampleInputEmail1">Email address</label>
+              <input type="email" name= "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="exampleInputPhone">Phone Number</label>
+                <input type="tel" name= "phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="exampleInputGender">Gender</label>
+              <div class="row ml-1">
+                <div class="form-check col">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"  checked>
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Female
+                  </label>
+                </div>
+                <div class="form-check col">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Male
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="validation" class="form-label">Social Media Handle</label>
+              <input type="text" name= "handle" class="form-control" id="validation" required placeholder="Enter Twitter Url">
+              <div class="invalid-feedback">
+                Please provide a valid Url.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="validation_A" class="form-label">Attacker's Identity</label>
+              <input type="text" name= "attackers_handle" class="form-control" id="validation_A" required placeholder="Enter the Attacker Url">
+              <div class="invalid-feedback">
+                Please provide a valid Url.
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="validationCustom03" class="form-label">Current Location</label>
+                <input type="text" name= "location" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="exampleInput">Give a detailed account of the occurence (max 1000 words)</label>
+                <textarea class="form-control" name= "comment" rows="5" id="comment"></textarea>
+                <div class="invalid-feedback">
+                  Please enter a message in the textarea.
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label font-weight-bold" for="customFile">Upload a clear picture to back up your complain (Not more than 1MB)</label>
+                <div class="input-group" id="fileForm" enctype="multipart/form-data">
+                  <div class="custom-file">
+                    <input type="file" name= "imagefile" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput" data-bv-file-maxsize="1000000" name="avatar">
+                    <label class="custom-file-label" for="customFileInput">Select file</label>
+                  </div>
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="customFileInput">Upload</button>
+                  </div>
+                </div>
+            </div>
+            
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">I agree that the above information is true and will be held responsible in case of any misinformation.</label>
+            </div>
+            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Submit</button>
+          </form>
+    </div>
+  <div class="modal" id="myModal">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header btn-color">
+        <h4 class="modal-title font-weight-bold">Good Job!</h4>
+         <button type="submit" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>We are glad you were able to speak up! Your report has been submitted successfully and we assure you that the right measures will be taken to investigate and punish the attacker.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-color" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</div>   
+    <script>
+      document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+        var name = document.getElementById("customFileInput").files[0].name;
+        var nextSibling = e.target.nextElementSibling
+        nextSibling.innerText = name
+      })
+    </script>
+</body>
+</html>
