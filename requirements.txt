@@ -11,3 +11,4 @@ MarkupSafe==2.0.1
 SQLAlchemy==1.4.22
 Werkzeug==2.0.1
 WTForms==2.3.3
+psycopg2-binary==2.9.1
