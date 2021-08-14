@@ -37,6 +37,7 @@ def home():
 @app.route('/details', methods=['GET', 'POST'])
 def details():
 	if request.method == 'POST':
+		db.create_all()
 		user= User(first_name= request.form.get('fn'), last_name=request.form.get('ln'),
 			email_address=request.form.get('email'), phone_number= request.form.get('phone'),
 			social_media_handle=request.form.get('handle'), location=request.form.get('location'),
