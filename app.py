@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 app= Flask(__name__, template_folder= "templates")
-app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///site.db'
+app.config['SQLALCHEMY_DATABASE_URI']= 'postgres://egeyxqvvwyzdxm:1eef9bc22e70b9f307273cf3279f874b61e88d76fa2cb7530b57c936b2543f76@ec2-3-233-100-43.compute-1.amazonaws.com:5432/d2npo0hg6mu43l'
 db= SQLAlchemy(app)
 
 
